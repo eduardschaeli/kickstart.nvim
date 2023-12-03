@@ -20,10 +20,12 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+    'mfussenegger/nvim-dap-python',
   },
   config = function()
     local dap = require 'dap'
     local dapui = require 'dapui'
+    local dapPython = require 'dap-python'
 
     require('mason-nvim-dap').setup {
       -- Makes a best effort to setup the various debuggers with
@@ -83,5 +85,8 @@ return {
 
     -- Install golang specific config
     require('dap-go').setup()
+
+    local pythonPath = '~/venvs/debugpy/bin/python'
+    require('dap-python').setup(pythonPath)
   end,
 }
